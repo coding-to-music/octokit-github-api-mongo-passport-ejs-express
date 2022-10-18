@@ -1,11 +1,12 @@
 {
-  "name": "assessment",
+  "name": "octokit-github-api-mongo-passport-ejs-express",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start" : "node app.js"
+    "deploy": "git add . && git commit -m Build && git push",
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
