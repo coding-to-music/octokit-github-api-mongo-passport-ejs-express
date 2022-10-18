@@ -18,7 +18,7 @@ const userRoutes = require("./routes/users");
 const { Octokit, App } = require("octokit");
 
 const dbUrl =
-  process.env.DB_URL ||
+  process.env.MONGO_URI ||
   "mongodb://localhost:27017/octokit-github-api-mongo-passport-ejs-express";
 //Used for storing data of the authenticated user
 
