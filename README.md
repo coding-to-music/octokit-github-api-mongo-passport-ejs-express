@@ -41,7 +41,7 @@ Foloowing are the features that I have added:<br>
 5. App has an endpoint listing all topics of a Repository
 6. App has an endpoint for updating topics of a repository
 7. App has an endpoint for deleting topics for a repository
-8. App has an endpoint to list all the repos of a given user with > 5 stars and > 5 forks
+8. App has an endpoint to list all the repos of a given user with > 0 stars or > 0 forks
 9. If a user is not given, then by default it shows repos of the authenticated user
 10. A user who wants to create a repo on its Github account, he/she has to create a personal access token and then by providing it they can create a repo by using the app
 

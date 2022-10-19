@@ -30,12 +30,36 @@ mongoose.connect(dbUrl, {
 });
 
 const db = mongoose.connection;
+
+console.log(db.name);
+
+console.log("db %s", mongoose.Collection.name);
+console.log("db %s", mongoose.Collection);
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", () => {
   console.log("Database connected");
 });
 
+mongoose.connection.on("open", function (ref) {
+  console.log("mongoose.connection.on Open: Connected to mongo server.");
+  //trying to get collection names
+  mongoose.connection.db.listCollections().toArray(function (err, names) {
+    console.log("mongoose.connection.db.listCollections().toArray %s", names); // [{ name: 'dbname.myCollection' }]
+    console.log(names); // [{ name: 'dbname.myCollection' }]
+    module.exports.Collection = names;
+  });
+});
 const app = express();
+
+// var mongoose = require("mongoose");
+var collections = mongoose.connections[0].collections;
+var names = [];
+
+Object.keys(collections).forEach(function (k) {
+  names.push(k);
+});
+
+console.log("names %s", names);
 
 app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
@@ -351,5 +375,5 @@ app.post("/count", async (req, res) => {
 port = process.env.PORT || 3000;
 
 app.listen(port, () => {
-  console.log(`Serving on Port ${port} `);
+  console.log(`Serving on Port http://localhost:${port} `);
 });
